@@ -1,0 +1,519 @@
+CONSOLE EXECUTION LOG - Student Registration & Contact Intelligence System
+All 7 menu options were run. Lines after each prompt are the values typed by the user.
+======================================================================
+
+$ python loader.py
+==============================================================
+INGESTION LOG  (contacts.csv)
+==============================================================
+Total rows read      : 20
+Valid rows accepted  : 12
+Rejected rows        : 8
+
+Reason for each rejected row:
+  Row  4 | Ananya Sen       | Invalid Phone (must start with 6, 7, 8 or 9)
+  Row  5 | Rahul Das        | Missing Phone
+  Row  6 | Sneha Roy        | Duplicate Phone (already registered to Aarav Sharma)
+  Row  7 | (blank)          | Missing Name
+  Row  8 | Vikram Singh     | Bad Email (multiple @ symbols)
+  Row 10 | Arjun Kapoor     | Bad Email (domain needs a period that is not first or last)
+  Row 12 | Aditya Joshi     | Bad Email (contains spaces)
+  Row 15 | Siddharth Rao    | Bad Email (nothing after @)
+
+12 clean records saved to students_clean.csv
+
+
+$ python main.py
+Loaded 12 students from students_clean.csv
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 1
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+1    Aarav Sharma          9876543210   aarav.sharma@gmail.com
+2    Priya Patel           8123456789   priya_p@outlook.com
+3    Rohan Verma           7001122334   rohan.v@yahoo.co.in
+4    Kavita Nair           6234567890   kavita.nair@gmail.com
+5    Neha Gupta            8765432109   neha.gupta@outlook.com
+6    Pooja Mehta           9988776655   pooja.mehta@yahoo.com
+7    Deepak Kumar          6345678901   deepak.kumar@domain.com
+8    Meera Iyer            8223344556   meera.iyer@gmail.com
+9    Karan Malhotra        9334455667   karan.malhotra@rediffmail.com
+10   Ritu Choudhary        7445566778   ritu.c@gmail.com
+11   Vikas Khanna          9556677889   vikas.khanna@outlook.com
+12   Simran Kaur           8667788990   simran.kaur@yahoo.com
+-----------------------------------------------------------------
+12 record(s)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 2
+Enter phone number, email or name to search: 9876543210
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+1    Aarav Sharma          9876543210   aarav.sharma@gmail.com
+-----------------------------------------------------------------
+1 record(s)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 2
+Enter phone number, email or name to search: priya_p@outlook.com
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+2    Priya Patel           8123456789   priya_p@outlook.com
+-----------------------------------------------------------------
+1 record(s)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 2
+Enter phone number, email or name to search: kum
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+7    Deepak Kumar          6345678901   deepak.kumar@domain.com
+-----------------------------------------------------------------
+1 record(s)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 2
+Enter phone number, email or name to search: nobody
+No student found for nobody
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  : Rahul Das
+Phone : 9000012345
+Email : rahul.das@college.edu
+Student registered successfully with ID 13.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  : Test User
+Phone : 12345
+Email : test@gmail.com
+Registration failed -> Invalid Phone (must be exactly 10 digits, got 5)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  : Another Person
+Phone : 9876543210
+Email : another@gmail.com
+Registration failed -> Duplicate Phone (already registered to Aarav Sharma)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  : Another Person
+Phone : 9111122233
+Email : AARAV.SHARMA@gmail.com
+Registration failed -> Duplicate Email (already registered to Aarav Sharma)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  : Test User
+Phone : 9111122233
+Email : test@@gmail.com
+Registration failed -> Bad Email (multiple @ symbols)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 3
+
+--- Register New Student ---
+Name  :    
+Phone : 9111122233
+Email : test@gmail.com
+Registration failed -> Missing Name
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 4
+Enter student ID or phone number to update: 2
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+2    Priya Patel           8123456789   priya_p@outlook.com
+-----------------------------------------------------------------
+1 record(s)
+
+What do you want to change?
+  1. Name
+  2. Phone
+  3. Email
+  0. Cancel
+Choice: 3
+New email: priya.patel@gmail.com
+Email updated: priya_p@outlook.com -> priya.patel@gmail.com
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 4
+Enter student ID or phone number to update: 3
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+3    Rohan Verma           7001122334   rohan.v@yahoo.co.in
+-----------------------------------------------------------------
+1 record(s)
+
+What do you want to change?
+  1. Name
+  2. Phone
+  3. Email
+  0. Cancel
+Choice: 2
+New phone: 5000000000
+Update failed -> Invalid Phone (must start with 6, 7, 8 or 9)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 4
+Enter student ID or phone number to update: 4
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+4    Kavita Nair           6234567890   kavita.nair@gmail.com
+-----------------------------------------------------------------
+1 record(s)
+
+What do you want to change?
+  1. Name
+  2. Phone
+  3. Email
+  0. Cancel
+Choice: 2
+New phone: 9876543210
+Update failed -> Duplicate Phone (already registered to Aarav Sharma)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 4
+Enter student ID or phone number to update: 4
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+4    Kavita Nair           6234567890   kavita.nair@gmail.com
+-----------------------------------------------------------------
+1 record(s)
+
+What do you want to change?
+  1. Name
+  2. Phone
+  3. Email
+  0. Cancel
+Choice: 1
+New name: Kavita Menon
+Name updated: Kavita Nair -> Kavita Menon
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 5
+Enter student ID or phone number to delete: 13
+Delete Rahul Das (ID 13)? (y/n): y
+Student deleted.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 5
+Enter student ID or phone number to delete: 9334455667
+Delete Karan Malhotra (ID 9)? (y/n): y
+Student deleted.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 5
+Enter student ID or phone number to delete: 99
+No student found for 99
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 5
+Enter student ID or phone number to delete: 5
+Delete Neha Gupta (ID 5)? (y/n): n
+Delete cancelled.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 9
+Invalid choice. Please enter a number from 1 to 7.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): abc
+Invalid choice. Please enter a number from 1 to 7.
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 1
+
+ID   Name                  Phone        Email
+-----------------------------------------------------------------
+1    Aarav Sharma          9876543210   aarav.sharma@gmail.com
+2    Priya Patel           8123456789   priya.patel@gmail.com
+3    Rohan Verma           7001122334   rohan.v@yahoo.co.in
+4    Kavita Menon          6234567890   kavita.nair@gmail.com
+5    Neha Gupta            8765432109   neha.gupta@outlook.com
+6    Pooja Mehta           9988776655   pooja.mehta@yahoo.com
+7    Deepak Kumar          6345678901   deepak.kumar@domain.com
+8    Meera Iyer            8223344556   meera.iyer@gmail.com
+10   Ritu Choudhary        7445566778   ritu.c@gmail.com
+11   Vikas Khanna          9556677889   vikas.khanna@outlook.com
+12   Simran Kaur           8667788990   simran.kaur@yahoo.com
+-----------------------------------------------------------------
+11 record(s)
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 6
+
+=======================================================
+       STUDENT REGISTRATION - BUSINESS INTELLIGENCE
+=======================================================
+Total Contacts Processed : 20
+Valid Registrations      : 12
+Rejected Records         : 8
+Data Quality Accuracy    : 60.0%
+
+--- Data Entry Errors ---
+  Bad Email      : 4
+  Duplicate Phone: 1
+  Invalid Phone  : 1
+  Missing Name   : 1
+  Missing Phone  : 1
+
+Students Currently Registered : 11
+
+--- Telecom Network Breakdown ---
+  9-Series : 3 students (27.3%)
+  8-Series : 4 students (36.4%)
+  7-Series : 2 students (18.2%)
+  6-Series : 2 students (18.2%)
+  Largest segment: 8-Series
+
+--- Top Email Domains ---
+  @gmail.com        : 5 students
+  @outlook.com      : 2 students
+  @yahoo.com        : 2 students
+  @domain.com       : 1 student
+  @yahoo.co.in      : 1 student
+=======================================================
+
+====== STUDENT REGISTRATION SYSTEM ======
+ 1. View All Students
+ 2. Search Record
+ 3. Register Student
+ 4. Update Student
+ 5. Delete Student
+ 6. Analytics Report
+ 7. Save and Exit
+Enter your choice (1-7): 7
+11 records saved to students_clean.csv. Goodbye!
+
+
+$ python analytics.py
+=======================================================
+       STUDENT REGISTRATION - BUSINESS INTELLIGENCE
+=======================================================
+Total Contacts Processed : 20
+Valid Registrations      : 12
+Rejected Records         : 8
+Data Quality Accuracy    : 60.0%
+
+--- Data Entry Errors ---
+  Bad Email      : 4
+  Duplicate Phone: 1
+  Invalid Phone  : 1
+  Missing Name   : 1
+  Missing Phone  : 1
+
+Students Currently Registered : 12
+
+--- Telecom Network Breakdown ---
+  9-Series : 4 students (33.3%)
+  8-Series : 4 students (33.3%)
+  7-Series : 2 students (16.7%)
+  6-Series : 2 students (16.7%)
+  Largest segment: 8-Series
+
+--- Top Email Domains ---
+  @gmail.com        : 4 students
+  @outlook.com      : 3 students
+  @yahoo.com        : 2 students
+  @domain.com       : 1 student
+  @rediffmail.com   : 1 student
+  @yahoo.co.in      : 1 student
+=======================================================
+
+
+$ cat students_clean.csv   (state saved by main.py on exit)
+id,name,phone,email
+1,Aarav Sharma,9876543210,aarav.sharma@gmail.com
+2,Priya Patel,8123456789,priya.patel@gmail.com
+3,Rohan Verma,7001122334,rohan.v@yahoo.co.in
+4,Kavita Menon,6234567890,kavita.nair@gmail.com
+5,Neha Gupta,8765432109,neha.gupta@outlook.com
+6,Pooja Mehta,9988776655,pooja.mehta@yahoo.com
+7,Deepak Kumar,6345678901,deepak.kumar@domain.com
+8,Meera Iyer,8223344556,meera.iyer@gmail.com
+10,Ritu Choudhary,7445566778,ritu.c@gmail.com
+11,Vikas Khanna,9556677889,vikas.khanna@outlook.com
+12,Simran Kaur,8667788990,simran.kaur@yahoo.com

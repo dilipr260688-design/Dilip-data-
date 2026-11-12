@@ -1,0 +1,96 @@
+======================================================================
+PART 1 - VALIDATION TESTS  (validate_contact)
+======================================================================
+[PASS] Normal valid record
+        result: OK
+[PASS] Valid email with subdomain
+        result: OK
+[PASS] Spaces around fields are removed
+        result: OK
+[PASS] Name is empty
+        result: Missing Name
+[PASS] Name is only spaces
+        result: Missing Name
+[PASS] Boundary: name with 1 letter
+        result: OK
+[PASS] Phone is missing
+        result: Missing Phone
+[PASS] Phone starts with 5
+        result: Invalid Phone (must start with 6, 7, 8 or 9)
+[PASS] Phone starts with 0
+        result: Invalid Phone (must start with 6, 7, 8 or 9)
+[PASS] Phone has letters
+        result: Invalid Phone (digits only, no letters, spaces or symbols)
+[PASS] Phone has a space inside
+        result: Invalid Phone (digits only, no letters, spaces or symbols)
+[PASS] Phone with +91 prefix
+        result: Invalid Phone (digits only, no letters, spaces or symbols)
+[PASS] Boundary: 9 digits (too short)
+        result: Invalid Phone (must be exactly 10 digits, got 9)
+[PASS] Boundary: 11 digits (too long)
+        result: Invalid Phone (must be exactly 10 digits, got 11)
+[PASS] Boundary: smallest valid 6000000000
+        result: OK
+[PASS] Boundary: largest valid 9999999999
+        result: OK
+[PASS] Boundary: 5999999999 just below 6
+        result: Invalid Phone (must start with 6, 7, 8 or 9)
+[PASS] Phone starts with 7
+        result: OK
+[PASS] Phone starts with 8
+        result: OK
+[PASS] Email is missing
+        result: Missing Email
+[PASS] Email has no @
+        result: Bad Email (no @ symbol)
+[PASS] Email has two @
+        result: Bad Email (multiple @ symbols)
+[PASS] Email has a space
+        result: Bad Email (contains spaces)
+[PASS] Email has nothing before @
+        result: Bad Email (nothing before @)
+[PASS] Email has nothing after @
+        result: Bad Email (nothing after @)
+[PASS] Domain has no period
+        result: Bad Email (domain needs a period that is not first or last)
+[PASS] Domain starts with a period
+        result: Bad Email (domain needs a period that is not first or last)
+[PASS] Domain ends with a period
+        result: Bad Email (domain needs a period that is not first or last)
+[PASS] Boundary: smallest valid email a@b.c
+        result: OK
+[PASS] All fields wrong: name is reported first
+        result: Missing Name
+[PASS] Phone and email wrong: phone is reported first
+        result: Invalid Phone (must be exactly 10 digits, got 3)
+
+======================================================================
+PART 2 - DUPLICATE TESTS  (find_duplicate)
+======================================================================
+[PASS] Same phone, different email is a duplicate
+        result: Duplicate Phone (already registered to Aarav Sharma)
+[PASS] Same email, different phone is a duplicate
+[PASS] Same email in capital letters is a duplicate
+[PASS] New phone and new email is accepted
+
+======================================================================
+PART 3 - LOADER AND ANALYTICS ON contacts.csv
+======================================================================
+[PASS] Total rows read is 20
+[PASS] Valid rows accepted is 12
+[PASS] Rejected rows is 8
+[PASS] Valid + rejected = total
+[PASS] Every student ID is unique
+[PASS] No phone number repeats in clean data
+[PASS] No email repeats in clean data
+[PASS] Sneha Roy was rejected as duplicate phone
+[PASS] Aarav Sharma (first owner of the phone) was kept
+[PASS] Error counts are correct
+[PASS] Phone series counts are correct
+[PASS] Email domain counts are correct
+[PASS] Series counts add up to the number of valid students
+[PASS] Domain counts add up to the number of valid students
+
+======================================================================
+SUMMARY: 49 passed, 0 failed, 49 tests in total
+======================================================================
